@@ -18,3 +18,4 @@ jobs:
         uses: mondoohq/actions/terraform@main
         with:
           service-account-credentials: ${{ secrets.MONDOO_SERVICE_ACCOUNT }}
+          path: ./terraform
