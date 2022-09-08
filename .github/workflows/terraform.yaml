@@ -10,7 +10,7 @@ on:
 jobs:
   terraform-tests:
     runs-on: ubuntu-latest
-    name: Test Terraform scanning
+    name: AWS Terraform Security Scan
     steps:
       - uses: actions/checkout@v3
 
