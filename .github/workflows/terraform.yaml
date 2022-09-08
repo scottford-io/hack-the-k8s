@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "terraform/*"
+      - ".github/workflows/*"
     branches:
       - "main"
 
@@ -14,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Scan Terraform 
+      - name: Security scan Terraform code 
         uses: mondoohq/actions/terraform@main
         with:
           service-account-credentials: ${{ secrets.MONDOO_SERVICE_ACCOUNT }}
