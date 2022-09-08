@@ -1,0 +1,21 @@
+name: K8s Manifest Scanning
+on:
+  push:
+    paths:
+      - ".github/workflows/*"
+      - dvwa-eks.yaml
+    branches:
+      - "main"
+
+jobs:
+  k8s-manifest-tests:
+    runs-on: ubuntu-latest
+    name: Scan DVWA deployment manifest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Scan K8S Manifest for security misconfigurations
+        uses: mondoohq/actions/k8s-manifest@main
+        with:
+          service-account-credentials: ${{ secrets.MONDOO_SERVICE_ACCOUNT }}
+          path: ./dvwa-eks.yaml
